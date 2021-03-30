@@ -1,0 +1,337 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.nav li > form > button.logout {
+    padding: 15px;
+    border: none;
+}
+
+@media(max-width:767px) {
+    .nav li > form > button.logout {
+        display:block;
+        text-align: left;
+        width: 100%;
+        padding: 10px 15px;
+    }
+}
+
+.nav > li > form > button.logout:focus,
+.nav > li > form > button.logout:hover {
+    text-decoration: none;
+}
+
+.nav > li > form > button.logout:focus {
+    outline: none;
+}
+
+/*Custom styling*/
+
+* {
+    transition: .3s ease;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-end {
+    justify-content: end;
+}
+
+.col-12 {
+    flex: 100%;
+    width: 100%;
+}
+
+.col-6 {
+    flex: 50%;
+    width: 50%;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-block-in * {
+    display: block;
+}
+
+.d-none {
+    display: none;
+}
+
+.bg-secondary {
+    background-color: #e5e5e5;
+}
+
+.flex-auto {
+    flex: auto;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.mx-2-in * {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.my-4 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.mx-4-in * {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.p-4 {
+    padding: 2rem;
+}
+
+.pt-4 {
+    padding-top: 2rem;
+}
+
+.pb-4 {
+    padding-bottom: 2rem;
+}
+
+.px-2 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-1 {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 250px;
+    padding: 2rem;
+    margin: 1rem;
+    background-color: #fff;
+}
+
+.card .card-header {
+    word-break: break-all;
+    top: 0;
+}
+
+.card img {
+    margin: auto;
+}
+
+.card .card-header,
+.card .card-footer {
+    position: absolute;
+    color: #fff;
+    opacity: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+}
+
+.card .card-footer *{
+    opacity: 0;
+    margin: .5rem;
+}
+
+.card .card-footer {
+    bottom: 0;
+}
+
+
+
+.card:hover .card-header,
+.card:hover .card-footer,
+.card:hover .card-footer * {
+    opacity: 1;
+    z-index: 2;
+}
+
+.card:hover img {
+    opacity: .25;
+    z-index: 1;
+    filter: blur(3px);
+}
+
+@media screen and (min-width:480px) {
+    /* Target landscape smartphones, portrait tablets, narrow desktops */
+    .col-md-3 {
+        width: 25% !important;
+        flex: 0 25% !important;
+    }
+
+    .card:hover {
+        z-index: 5;
+        background: rgba(0, 0, 0, .85);
+        transform: scale(1.25);
+    }
+
+    .d-md-block {
+        display: block;
+    }
+}
+
+@media screen and (max-width:479px) {
+    /* Target portrait smartphones */
+
+    .col-sm-12 {
+        width: 100%;
+        flex: 0 100%;
+    }
+
+    .card:hover {
+        background: rgba(0, 0, 0, .85);
+    }
+
+    .d-sm-block {
+        display: block;
+    }
+}
+
+h1 {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+h1::before,
+h1::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: #3c763d;
+}
+
+h1::before {
+    margin-right: 1rem;
+}
+
+h1::after {
+    margin-left: 1rem;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
