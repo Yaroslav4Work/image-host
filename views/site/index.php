@@ -40,23 +40,23 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php
                 /* При данной инкрементации (по 3) удобнее всего отрисовывать (при кол-ве выводимых изображений, равном 9 на страницу) */
                 for ($i = 0;
-                     $i <= 6;
+                     $i < count($images);
                      $i += 3) {
-                if ($images[$i]) { ?>
+                if ($i < count($images)) { ?>
                     <div class="row d-flex flex-wrap justify-content-center bg-secondary <?= $i == 0 ? 'pt-4' : ($i == 6 ? 'pb-4' : '') ?>">
                         <?php
-                        for ($k = 0;
-                             $k < 3;
+                        for ($k = $i;
+                             $k < $i + 3;
                              $k++) {
-                            if ($images[$i + $k]) { ?>
+                            if ($k < count($images)) { ?>
                                 <div class="col-sm-12 col-md-3 card">
                                     <!-- Хедер и футер карточки изначально скрыты и показываются, только при наведении (на моб. устройстве - клике) -->
-                                    <h3 class="card-header text-center"><?= $images[$i + $k]->name ?></h3>
+                                    <h3 class="card-header text-center"><?= $images[$k]->name ?></h3>
                                     <img
                                             src="<?php
                                             /* Задаем полный путь и путь до превью изображения */
-                                            $img_thumb_path = '/uploads/' . $images[$i + $k]->name . '_thumb.' . $images[$i + $k]->extension;
-                                            $origin_path = Url::base(true) . '/uploads/' . $images[$i + $k]->name . '.' . $images[$i + $k]->extension;
+                                            $img_thumb_path = '/uploads/' . $images[$k]->name . '_thumb.' . $images[$k]->extension;
+                                            $origin_path = Url::base(true) . '/uploads/' . $images[$k]->name . '.' . $images[$k]->extension;
                                             /* Проверяем на наличие и выводим файл превью, иначе оригинал изображения */
                                             if (file_exists(Yii::getAlias('@webroot') . $img_thumb_path)) {
                                                 echo Url::base(true) . $img_thumb_path;
@@ -64,13 +64,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 echo $origin_path;
                                             }
                                             ?>"
-                                            alt="Превью изображения: <?= $images[$i + $k]->name ?>"
+                                            alt="Превью изображения: <?= $images[$k]->name ?>"
                                             width="200"
                                             height="200">
                                     <!-- В футере расположена дата и время загрузки изображения, а так же кнопка для перехода на оригинал -->
                                     <p class="card-footer small text-center">
                                         <a href="<?= $origin_path ?>" class="btn btn-success d-block">Посмотреть оригинал</a>
-                                        <span class="d-block"><?= $images[$i + $k]->upload_datetime ?></span>
+                                        <span class="d-block"><?= $images[$k]->upload_datetime ?></span>
                                     </p>
                                 </div>
                             <?php }
