@@ -65,7 +65,7 @@ class UploadForm extends Model
                     $image = new Images();
                     $image->name = $transliterated_filename;
                     $image->extension = $file->extension;
-                    /* Установка datetime в PHP необходимв для MySQL версии 5.5 и ниже */
+                    /* Установка datetime в PHP необходима для MySQL версии 5.5 и ниже */
                     $datetime = new \DateTime('now');
                     $image->upload_datetime = $datetime->format('Y-m-d H:m:s');
                     $image->save();

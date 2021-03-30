@@ -172,7 +172,10 @@ class SiteController extends Controller
     public function actionUpload()
     {
         $model = new UploadForm();
-        $after_upload = null;
+        $after_upload = [
+            'not_uploaded' => [],
+            'uploaded' => []
+        ];
 
         if (Yii::$app->request->isPost) {
             /* Получаем все файлы из формы */
